@@ -137,26 +137,8 @@ app.post('/save', function(req, res){
 		}
 		// otherwise
 		else {
-
-			//console.log(doc)
-
-			// using the Article id passed in the id parameter of our url,
-			// prepare a query that finds the matching Article in our db
-			// and update it to make it's lone note the one we just saved
-			Article.findOneAndUpdate({'_id': req.params.id}, {'note':doc._id})
-			// execute the above query
-			.exec(function(err, doc2){
-				// log any errors
-				if (err){
-					console.log(err);
-				} else {
-					// or send the document to the browser
-
-					//console.log(doc)
-					//send doc, not doc2 which is the data of the new note
-					res.send(doc);
-				}
-			});
+			//send doc, which is the data of the new note
+			res.send(doc);
 		}
 	});
 });
