@@ -223,7 +223,6 @@ var typeIt = function() {
   console.log(mongoData);
   var headline = mongoData[dataCount].title;
   var summary = mongoData[dataCount].summary;
-  var articleID = mongoData[dataCount]._id;
   dataCount++;
   // type animation for new summary
   (function type() {
@@ -235,7 +234,6 @@ var typeIt = function() {
     // put in the text via javascript
     $("#typewriter-headline").text(printHeadline);
     $("#typewriter-summary").text(printSummary);
-    $("#typewriter-headline").attr('data-articleID', articleID);
 
     // return stop when text is equal to the writeTxt
     if (printHeadline.length === headline.length && printSummary.length === summary.length) {
